@@ -115,6 +115,15 @@
         <item name="android:textColor">@color/color_on_surface</item>
     </style>
 
+    <!-- Variante perigosa (ex.: Sair): vidro com tom vermelho, no mesmo sistema glass. -->
+    <style name="Widget.FieldService.Button.Glass.Danger">
+        <item name="backgroundTint">@color/glass_danger_fill</item>
+        <item name="strokeColor">@color/glass_danger_stroke</item>
+        <item name="rippleColor">@color/glass_danger_ripple</item>
+        <item name="android:textColor">@color/color_danger</item>
+        <item name="iconTint">@color/color_danger</item>
+    </style>
+
     <!-- Indicador da aba ativa na barra inferior: pílula de vidro neutro translúcido. -->
     <style name="Widget.FieldService.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">?attr/fsNavIndicator</item>

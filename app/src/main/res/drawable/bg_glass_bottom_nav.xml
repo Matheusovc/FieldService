@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Barra inferior "liquid glass": cápsula flutuante translúcida. As cores variam
-     conforme o tema (vidro escuro no Dark/Super Dark, cinza-claro no Claro). -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <solid android:color="?attr/fsNavFill" />
-    <stroke
-        android:width="@dimen/stroke_hairline"
-        android:color="?attr/fsNavStroke" />
-    <corners android:radius="@dimen/radius_pill" />
-</shape>
+<!-- Barra inferior "liquid glass": cápsula flutuante translúcida. A base varia
+     conforme o tema (vidro escuro no Dark/Super Dark, cinza-claro no Claro) e uma
+     camada de brilho superior (sheen) dá o aspecto de vidro polido. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base de vidro translúcido + borda de luz -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/fsNavFill" />
+            <stroke
+                android:width="@dimen/stroke_hairline"
+                android:color="?attr/fsNavStroke" />
+            <corners android:radius="@dimen/radius_pill" />
+        </shape>
+    </item>
+
+    <!-- Brilho superior (sheen) e leve luz na base: efeito de vidro -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#33FFFFFF"
+                android:centerColor="#00FFFFFF"
+                android:endColor="#14FFFFFF"
+                android:type="linear" />
+            <corners android:radius="@dimen/radius_pill" />
+        </shape>
+    </item>
+
+</layer-list>

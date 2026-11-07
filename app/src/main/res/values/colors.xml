@@ -57,6 +57,9 @@
     <color name="glass_nav_fill">#B8181C22</color>
     <color name="glass_nav_stroke">#26FFFFFF</color>
     <color name="glass_nav_active_indicator">#24FFFFFF</color>
+    <color name="glass_danger_fill">#24FF5A5F</color>
+    <color name="glass_danger_stroke">#80FF5A5F</color>
+    <color name="glass_danger_ripple">#40FF5A5F</color>
 
     <!-- ============ Tema CLARO ============ -->
     <color name="light_background">#EEF1F5</color>
