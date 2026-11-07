@@ -1,7 +1,12 @@
 package com.fieldservice.app.presentation.main;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.OvershootInterpolator;
+
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -70,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean onNavItemSelected(@NonNull MenuItem item) {
         Fragment target;
         int id = item.getItemId();
+        // Efeito "liquid": o ícone selecionado dá um pulinho elástico (além do
+        // indicador de vidro que desliza entre as abas, animado pelo Material).
+        animateNavIcon(id);
         if (id == R.id.navTickets) {
             target = ticketsFragment;
         } else if (id == R.id.navProfile) {
@@ -88,5 +96,46 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
         activeFragment = target;
         return true;
+    }
+
+    /**
+     * Anima o ícone da aba selecionada com um "pulo" elástico (escala com overshoot),
+     * reforçando a sensação líquida da navegação. É defensivo: se a estrutura interna
+     * da BottomNavigationView mudar, apenas não anima (sem travar o app).
+     */
+    private void animateNavIcon(int itemId) {
+        try {
+            BottomNavigationMenuView menuView = (BottomNavigationMenuView) binding.bottomNav.getChildAt(0);
+            if (menuView == null) {
+                return;
+            }
+            Menu menu = binding.bottomNav.getMenu();
+            int index = -1;
+            for (int i = 0; i < menu.size(); i++) {
+                if (menu.getItem(i).getItemId() == itemId) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index < 0 || index >= menuView.getChildCount()) {
+                return;
+            }
+            View icon = menuView.getChildAt(index)
+                    .findViewById(com.google.android.material.R.id.navigation_bar_item_icon_view);
+            if (icon == null) {
+                return;
+            }
+            icon.animate().cancel();
+            icon.setScaleX(0.78f);
+            icon.setScaleY(0.78f);
+            icon.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(420)
+                    .setInterpolator(new OvershootInterpolator(3.2f))
+                    .start();
+        } catch (Exception ignored) {
+            // Mantém a navegação funcionando mesmo que a animação falhe.
+        }
     }
 }

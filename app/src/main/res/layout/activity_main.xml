@@ -29,6 +29,7 @@
         app:elevation="8dp"
         app:itemActiveIndicatorStyle="@style/Widget.FieldService.BottomNav.ActiveIndicator"
         app:itemIconTint="@color/nav_item_color"
+        app:itemRippleColor="@color/glass_ripple"
         app:itemTextColor="@color/nav_item_color"
         app:labelVisibilityMode="selected"
         app:menu="@menu/menu_bottom_nav" />
