@@ -76,4 +76,12 @@
     <string name="action_save">Salvar</string>
     <string name="settings_saved">Preferências salvas</string>
     <string name="about_message">Versão 2.0_build0.1\n\nGestão de atendimentos em campo.</string>
+
+    <!-- Abertura animada (splash) -->
+    <string name="splash_skip">Pular</string>
+    <string name="splash_beat_company">A empresa recebe demandas em campo</string>
+    <string name="splash_beat_client">O cliente abre um chamado pelo celular</string>
+    <string name="splash_beat_notify">O técnico é notificado na hora</string>
+    <string name="splash_beat_tech">Equipa-se e vai ao atendimento</string>
+    <string name="splash_beat_fast">Atendimento ágil, do chamado à solução</string>
 </resources>
