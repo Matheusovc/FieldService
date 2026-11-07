@@ -1,7 +1,7 @@
 package com.fieldservice.app.data;
 
+import com.fieldservice.app.data.repository.FirestoreTicketRepository;
 import com.fieldservice.app.data.repository.MockAuthRepository;
-import com.fieldservice.app.data.repository.MockTicketRepository;
 import com.fieldservice.app.domain.repository.AuthRepository;
 import com.fieldservice.app.domain.repository.TicketRepository;
 
@@ -13,7 +13,9 @@ import com.fieldservice.app.domain.repository.TicketRepository;
 public final class AppContainer {
 
     private static final AuthRepository authRepository = new MockAuthRepository();
-    private static final TicketRepository ticketRepository = new MockTicketRepository();
+    // Chamados agora vêm do Cloud Firestore. Para reverter ao mock em memória,
+    // basta trocar por: new MockTicketRepository().
+    private static final TicketRepository ticketRepository = new FirestoreTicketRepository();
 
     private AppContainer() {
     }
