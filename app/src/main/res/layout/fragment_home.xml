@@ -8,15 +8,15 @@
     android:background="?attr/fsBackground"
     tools:context=".presentation.home.HomeFragment">
 
-    <!-- Textura hexagonal de fundo da Home -->
+    <!-- Brilho sutil da marca (substitui a textura hexagonal). -->
     <ImageView
         android:id="@+id/imageHomeBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@null"
         android:importantForAccessibility="no"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_home" />
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_home_glow" />
 
     <LinearLayout
         android:layout_width="match_parent"

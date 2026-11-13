@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fundo da Home: brilho sutil da marca (dois glows azuis translúcidos que se dissolvem
+     no fundo do tema). Overlay leve — funciona nos temas Escuro, Claro e Super Dark. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:centerX="0.26"
+                android:centerY="0.16"
+                android:gradientRadius="760dp"
+                android:startColor="#244C8DFF"
+                android:endColor="#004C8DFF" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:centerX="0.84"
+                android:centerY="0.82"
+                android:gradientRadius="700dp"
+                android:startColor="#1A64B5F6"
+                android:endColor="#0064B5F6" />
+        </shape>
+    </item>
+</layer-list>
