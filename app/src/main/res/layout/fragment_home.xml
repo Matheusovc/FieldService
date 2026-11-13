@@ -103,7 +103,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_xs"
                             android:textAppearance="@style/TextAppearance.FieldService.Metric"
-                            android:textColor="@color/color_warning"
+                            android:textColor="?attr/fsOnBackground"
+                            android:textStyle="bold"
                             tools:text="4" />
 
                         <TextView
@@ -143,7 +144,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_xs"
                             android:textAppearance="@style/TextAppearance.FieldService.Metric"
-                            android:textColor="@color/color_info"
+                            android:textColor="?attr/fsOnBackground"
+                            android:textStyle="bold"
                             tools:text="1" />
 
                         <TextView
@@ -183,7 +185,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_xs"
                             android:textAppearance="@style/TextAppearance.FieldService.Metric"
-                            android:textColor="@color/color_success"
+                            android:textColor="?attr/fsOnBackground"
+                            android:textStyle="bold"
                             tools:text="2" />
 
                         <TextView

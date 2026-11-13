@@ -8,7 +8,7 @@
     <string name="action_login">Entrar</string>
 
     <!-- Home -->
-    <string name="home_greeting">Olá, %1$s 👋</string>
+    <string name="home_greeting">Olá, %1$s</string>
     <string name="home_subtitle">Aqui está o resumo dos seus atendimentos.</string>
     <string name="home_summary_title">Resumo do dia</string>
     <string name="home_summary_pending">Chamados pendentes</string>
