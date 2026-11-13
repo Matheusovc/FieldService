@@ -30,6 +30,7 @@ public class TicketsFragment extends Fragment {
     private FragmentTicketsBinding binding;
     private TicketsViewModel viewModel;
     private TicketAdapter ticketAdapter;
+    private android.animation.ObjectAnimator shimmerAnimator;
 
     @Nullable
     @Override
@@ -94,7 +95,13 @@ public class TicketsFragment extends Fragment {
     private void render(UiState<List<Ticket>> state) {
         UiState.Type type = state.getType();
 
-        binding.progressTickets.setVisibility(type == UiState.Type.LOADING ? View.VISIBLE : View.GONE);
+        boolean loading = type == UiState.Type.LOADING;
+        binding.groupSkeleton.setVisibility(loading ? View.VISIBLE : View.GONE);
+        if (loading) {
+            startShimmer();
+        } else {
+            stopShimmer();
+        }
         binding.recyclerTickets.setVisibility(type == UiState.Type.SUCCESS ? View.VISIBLE : View.GONE);
         binding.groupEmpty.setVisibility(type == UiState.Type.EMPTY ? View.VISIBLE : View.GONE);
         binding.groupError.setVisibility(type == UiState.Type.ERROR ? View.VISIBLE : View.GONE);
@@ -110,9 +117,38 @@ public class TicketsFragment extends Fragment {
         }
     }
 
+    /** Inicia a varredura de brilho sobre o skeleton (após o layout definir a largura). */
+    private void startShimmer() {
+        binding.groupSkeleton.post(() -> {
+            if (binding == null) {
+                return;
+            }
+            int width = binding.groupSkeleton.getWidth();
+            int shimmerWidth = binding.viewShimmer.getWidth();
+            if (width == 0) {
+                return;
+            }
+            stopShimmer();
+            shimmerAnimator = android.animation.ObjectAnimator.ofFloat(
+                    binding.viewShimmer, View.TRANSLATION_X, -shimmerWidth, width);
+            shimmerAnimator.setDuration(1150);
+            shimmerAnimator.setRepeatCount(android.animation.ObjectAnimator.INFINITE);
+            shimmerAnimator.setInterpolator(new android.view.animation.LinearInterpolator());
+            shimmerAnimator.start();
+        });
+    }
+
+    private void stopShimmer() {
+        if (shimmerAnimator != null) {
+            shimmerAnimator.cancel();
+            shimmerAnimator = null;
+        }
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        stopShimmer();
         binding = null;
     }
 }

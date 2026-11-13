@@ -50,12 +50,34 @@
             android:padding="@dimen/screen_margin"
             android:paddingBottom="@dimen/content_bottom_space" />
 
-        <ProgressBar
-            android:id="@+id/progressTickets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+        <!-- Estado de carregamento: skeleton com brilho (shimmer) -->
+        <FrameLayout
+            android:id="@+id/groupSkeleton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/screen_margin"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/view_skeleton_ticket_card" />
+
+                <include layout="@layout/view_skeleton_ticket_card" />
+
+                <include layout="@layout/view_skeleton_ticket_card" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewShimmer"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shimmer_sweep" />
+
+        </FrameLayout>
 
         <!-- Estado vazio -->
         <LinearLayout
