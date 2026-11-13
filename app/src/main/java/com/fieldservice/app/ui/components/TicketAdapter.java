@@ -66,6 +66,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
             binding.textDate.setText(DateFormatter.format(ticket.getCreatedAt()));
             binding.textTitle.setText(ticket.getTitle());
             binding.textAddress.setText(ticket.getAddress());
+            binding.viewPriorityAccent.setBackgroundColor(
+                    PriorityBadge.colorInt(binding.getRoot().getContext(), ticket.getPriority()));
             PriorityBadge.bind(binding.textPriorityBadge, ticket.getPriority());
             StatusBadge.bind(binding.textStatusBadge, ticket.getStatus());
             binding.getRoot().setOnClickListener(v -> listener.onTicketClick(ticket));

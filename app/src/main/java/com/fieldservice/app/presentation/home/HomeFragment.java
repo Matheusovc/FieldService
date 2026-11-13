@@ -61,8 +61,20 @@ public class HomeFragment extends Fragment {
         viewModel.getUiState().observe(getViewLifecycleOwner(), this::render);
     }
 
+    /** Saudação conforme o horário do dispositivo (Bom dia / Boa tarde / Boa noite). */
+    private String timeGreeting() {
+        int hour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY);
+        if (hour >= 5 && hour < 12) {
+            return getString(R.string.greeting_morning);
+        } else if (hour >= 12 && hour < 18) {
+            return getString(R.string.greeting_afternoon);
+        }
+        return getString(R.string.greeting_evening);
+    }
+
     private void render(HomeUiState state) {
-        binding.textGreeting.setText(getString(R.string.home_greeting, state.getTechnicianFirstName()));
+        binding.textGreeting.setText(
+                getString(R.string.home_greeting, timeGreeting(), state.getTechnicianFirstName()));
         binding.textPendingCount.setText(String.valueOf(state.getPendingCount()));
         binding.textInProgressCount.setText(String.valueOf(state.getInProgressCount()));
         binding.textCompletedCount.setText(String.valueOf(state.getCompletedCount()));

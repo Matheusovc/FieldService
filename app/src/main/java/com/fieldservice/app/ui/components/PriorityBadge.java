@@ -48,6 +48,11 @@ public final class PriorityBadge {
         }
     }
 
+    /** Cor resolvida da prioridade — usada também na faixa de destaque do card. */
+    public static int colorInt(Context context, Priority priority) {
+        return ContextCompat.getColor(context, colorRes(priority));
+    }
+
     public static void bind(TextView view, Priority priority) {
         Context context = view.getContext();
         int color = ContextCompat.getColor(context, colorRes(priority));

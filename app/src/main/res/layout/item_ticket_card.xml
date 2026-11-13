@@ -11,8 +11,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/space_md">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <!-- Faixa de prioridade (cor definida em tempo de execução) -->
+        <View
+            android:id="@+id/viewPriorityAccent"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            tools:background="@color/priority_high" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_md">
 
         <!-- Cabeçalho: número do chamado (destaque) + data -->
         <LinearLayout
@@ -106,6 +119,8 @@
                 android:id="@+id/textStatusBadge"
                 style="@style/Widget.FieldService.Badge"
                 tools:text="Atribuído" />
+
+        </LinearLayout>
 
         </LinearLayout>
 
