@@ -38,6 +38,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
     public TicketViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemTicketCardBinding binding = ItemTicketCardBinding.inflate(
                 LayoutInflater.from(parent.getContext()), parent, false);
+        PressFeedback.attach(binding.getRoot());
         return new TicketViewHolder(binding);
     }
 
@@ -70,7 +71,10 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
                     PriorityBadge.colorInt(binding.getRoot().getContext(), ticket.getPriority()));
             PriorityBadge.bind(binding.textPriorityBadge, ticket.getPriority());
             StatusBadge.bind(binding.textStatusBadge, ticket.getStatus());
-            binding.getRoot().setOnClickListener(v -> listener.onTicketClick(ticket));
+            binding.getRoot().setOnClickListener(v -> {
+                v.performHapticFeedback(android.view.HapticFeedbackConstants.CONTEXT_CLICK);
+                listener.onTicketClick(ticket);
+            });
         }
     }
 }

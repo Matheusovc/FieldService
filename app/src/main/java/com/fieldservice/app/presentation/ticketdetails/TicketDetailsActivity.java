@@ -101,7 +101,10 @@ public class TicketDetailsActivity extends AppCompatActivity {
         if (action != null) {
             binding.actionBar.setVisibility(View.VISIBLE);
             binding.buttonAction.setText(action.labelRes);
-            binding.buttonAction.setOnClickListener(v -> viewModel.advance(action.nextStatus));
+            binding.buttonAction.setOnClickListener(v -> {
+                v.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM);
+                viewModel.advance(action.nextStatus);
+            });
         } else {
             binding.actionBar.setVisibility(View.GONE);
             binding.buttonAction.setOnClickListener(null);
