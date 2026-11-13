@@ -9,12 +9,16 @@
 
     <!-- Maior destaque: saudação, número do chamado na tela de detalhes -->
     <style name="TextAppearance.FieldService.Display" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+$SG
         <item name="android:textSize">@dimen/text_display</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/fsOnBackground</item>
     </style>
 
     <style name="TextAppearance.FieldService.Headline" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+$SG
         <item name="android:textSize">@dimen/text_headline</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/fsOnBackground</item>
@@ -22,12 +26,16 @@
 
     <!-- Título de seção ("Resumo do dia", "Chamados prioritários") -->
     <style name="TextAppearance.FieldService.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+$SG
         <item name="android:textSize">@dimen/text_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/fsOnBackground</item>
     </style>
 
     <style name="TextAppearance.FieldService.TitleSmall" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+$SG
         <item name="android:textSize">@dimen/text_title_sm</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/fsOnSurface</item>
@@ -35,6 +43,8 @@
 
     <!-- Número grande de destaque nos cards de resumo -->
     <style name="TextAppearance.FieldService.Metric" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+$SG
         <item name="android:textSize">@dimen/text_metric</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/fsOnSurface</item>
@@ -43,24 +53,32 @@
 
     <!-- Corpo de texto principal -->
     <style name="TextAppearance.FieldService.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/inter</item>
+$IN
         <item name="android:textSize">@dimen/text_body</item>
         <item name="android:textColor">?attr/fsOnSurface</item>
     </style>
 
     <!-- Texto secundário / de apoio -->
     <style name="TextAppearance.FieldService.BodySecondary" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/inter</item>
+$IN
         <item name="android:textSize">@dimen/text_body</item>
         <item name="android:textColor">?attr/fsOnSurfaceVariant</item>
     </style>
 
     <!-- Informação terciária (datas, metadados) -->
     <style name="TextAppearance.FieldService.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/inter</item>
+$IN
         <item name="android:textSize">@dimen/text_caption</item>
         <item name="android:textColor">?attr/fsOnSurfaceVariant</item>
     </style>
 
     <!-- Rótulo discreto de seção ("CLIENTE", "ENDEREÇO") em caixa alta -->
     <style name="TextAppearance.FieldService.SectionLabel" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+$SG
         <item name="android:textSize">@dimen/text_label</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
@@ -70,6 +88,8 @@
 
     <!-- Título da barra superior (Toolbar) -->
     <style name="TextAppearance.FieldService.Toolbar" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+$SG
         <item name="android:textSize">@dimen/text_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/fsOnBackground</item>
