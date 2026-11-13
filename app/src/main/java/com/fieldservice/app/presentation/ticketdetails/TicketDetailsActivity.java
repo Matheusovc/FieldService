@@ -45,6 +45,7 @@ public class TicketDetailsActivity extends AppCompatActivity {
 
     private ActivityTicketDetailsBinding binding;
     private TicketDetailsViewModel viewModel;
+    private boolean contentEntered = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +82,22 @@ public class TicketDetailsActivity extends AppCompatActivity {
         }
 
         Ticket ticket = state.getData();
-        // Anima suavemente as mudanças (badge de status e botão) ao avançar o atendimento.
-        AutoTransition transition = new AutoTransition();
-        transition.setDuration(280);
-        TransitionManager.beginDelayedTransition(binding.contentDetails, transition);
+        if (!contentEntered) {
+            // Entrada suave do conteúdo na primeira exibição (fade + leve subida).
+            contentEntered = true;
+            binding.contentDetails.setAlpha(0f);
+            binding.contentDetails.setTranslationY(48f);
+            binding.contentDetails.animate()
+                    .alpha(1f).translationY(0f)
+                    .setDuration(340)
+                    .setInterpolator(new android.view.animation.DecelerateInterpolator())
+                    .start();
+        } else {
+            // Anima suavemente as mudanças (badge de status e botão) ao avançar o atendimento.
+            AutoTransition transition = new AutoTransition();
+            transition.setDuration(280);
+            TransitionManager.beginDelayedTransition(binding.contentDetails, transition);
+        }
 
         binding.textNumber.setText(ticket.getNumber());
         binding.textCustomer.setText(ticket.getCustomerName());
